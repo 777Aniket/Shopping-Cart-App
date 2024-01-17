@@ -12,17 +12,17 @@ const CartItem = ({ item, itemIndex }) => {
     toast.success("Item remove")
   }
   return (
-    <div>
-      <div>
-        <div>
-          <img src={item.image} alt="" />
+    <div className="flex flex-col max-w-md mt-12 mx-24 border-b border-y-cyan-950 ">
+      <div className="">
+        <div className="">
+          <img src={item.image} alt="" className="h-60"  />
         </div>
-        <div>
-          <h1>{item.title}</h1>
-          <h1>{item.description}</h1>
-          <div>
-            <p>{item.price}</p>
-            <div onClick={removeItem}>
+        <div className="">
+          <h1 className="text-gray-900 font-semibold" >{item.title}</h1>
+          <h1 className="mt-2">{item.description.split(" ").splice(0, 10).join(" ") + "..."}</h1>
+          <div className="flex justify-between mt-2 mb-2">
+            <p className="text-green-600">{item.price}</p>
+            <div className="bg-red-400 rounded-full text-xl" onClick={removeItem}>
               <MdDelete/>
             </div>
           </div>

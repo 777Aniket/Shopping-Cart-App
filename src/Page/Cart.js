@@ -7,33 +7,31 @@ const Cart = () => {
   const { cart } = useSelector((state) => state);
   const [totalAmount, setTotalAmount] = useState(0);
   useEffect(() => {
-    setTotalAmount(
-      cart.reduce((acc, curr) => 
-        acc + curr.price,0
-      )
-    );
+    setTotalAmount(cart.reduce((acc, curr) => acc + curr.price, 0));
   }, [cart]);
 
   return (
-    <div className="">
+    <div className="flex">
       {cart.length > 0 ? (
-        <div className="max-w-6xl">
-          <div>
+        <div className="">
+          <div className="">
             {cart.map((item, index) => {
               return <CartItem key={item.id} item={item} itemIndex={index} />;
             })}
           </div>
-          <div>
-            <div>Your Cart</div>
-            <div>Summmary</div>
-            <p>
-              <span>Total item : {cart.length}</span>
-            </p>
-          </div>
+          <div className="">
+            <div className="">
+              <div>Your Cart</div>
+              <div>Summmary</div>
+              <p>
+                <span>Total item : {cart.length}</span>
+              </p>
+            </div>
 
-          <div>
-            <p>Total Amount : ${totalAmount}</p>
-            <button>Check Out </button>
+            <div>
+              <p>Total Amount : ${totalAmount}</p>
+              <button>Check Out </button>
+            </div>
           </div>
         </div>
       ) : (
